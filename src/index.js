@@ -1,11 +1,17 @@
 import React from './react';
 
-const element = (
-  <article id="foo">
-    <h1 className="title">Hello world</h1>
-    <p><a href="https://reactjs.org">React</a>is a JavaScript library for building user interfaces</p>
-  </article>
-)
+const container = document.getElementById("root")
 
-const container = document.getElementById('root');
-React.render(element, container);
+function App() {
+  const [state, setState] = React.useState(0);
+  return (
+    <div>
+      <h1>Hello Function Components</h1>
+      <p>Click me, count: {state}</p>
+      <button onClick={() => setState(s => s + 1)}>Plus one</button>
+    </div>
+  )
+}
+
+const elements = <App />
+React.render(elements, container);
